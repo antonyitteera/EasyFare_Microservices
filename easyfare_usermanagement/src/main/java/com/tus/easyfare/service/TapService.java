@@ -30,7 +30,7 @@ public class TapService {
 		UserEntity userDetails=userRepo.findById(tappedUser.getUserId()).get();
 		long availableBalance=userDetails.getSmartCard().getBalance();
 		PassengerDTO passObj= new PassengerDTO(tappedUser.getUserId(), tappedUser.getSourcePoint(), tappedUser.getRouteNumber(), tappedUser.getBusNumber(), availableBalance);
-		String restObj=restTemplate.postForObject("http://localhost:8082/api/v1/passenger", passObj, String.class);
+		String restObj=restTemplate.postForObject("http://3.93.4.37:8081/api/v1/passenger", passObj, String.class);
 		System.out.println(restObj+" Call successfull");
 		return restObj;
 	}

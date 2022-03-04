@@ -40,16 +40,5 @@ public class TapController {
 		respObj= new ResponseDTO(resp);
 		return new ResponseEntity<ResponseDTO>(respObj, HttpStatus.OK);
 	}
-	
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public Object getLocationData(){
 
-	    Object o = webclientBuilder.build()
-	            .get()
-	            .uri("https://api.tomtom.com/routing/1/calculateRoute/52.50931,13.42936:52.50274,13.43872/json?key=HFIEN2N8PyYo32M6zjeAEgRmQyrLQAAl")
-	            .retrieve()
-	            .bodyToMono(Object.class)
-	            .block();
-	    return o;
-	}
 }
